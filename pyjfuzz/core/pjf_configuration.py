@@ -21,17 +21,18 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
-import os
-import sys
 import json
+import os
 import socket
-from ast import literal_eval
-from .conf import CONF_PATH
+import sys
 from argparse import Namespace
-from .pjf_version import PYJFUZZ_LOGO
-from .pjf_grammar import generate_json
+from ast import literal_eval
+
 from . import GRAMMAR_PATH
+from .conf import CONF_PATH
 from .errors import PJFInvalidType
+from .pjf_grammar import generate_json
+from .pjf_version import PYJFUZZ_LOGO
 
 
 class PJFConfiguration(Namespace):

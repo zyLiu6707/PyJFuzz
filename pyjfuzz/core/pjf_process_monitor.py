@@ -29,7 +29,7 @@ import shlex
 from subprocess import PIPE
 from .pjf_executor import PJFExecutor
 from .pjf_testcase_server import PJFTestcaseServer
-from .errors import PJFMissingArgument ,PJFBaseException, PJFProcessExecutionError
+from .errors import PJFMissingArgument, PJFBaseException, PJFProcessExecutionError
 
 
 class PJFProcessMonitor(PJFTestcaseServer, PJFExecutor):
