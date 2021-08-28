@@ -26,8 +26,8 @@ import unittest
 import argparse
 import sys
 
-
 __TITLE__ = "Testing PJFConfiguration object"
+
 
 class TestPJFConfiguration(unittest.TestCase):
 
@@ -50,4 +50,3 @@ def test():
     print("=" * len(__TITLE__))
     suite = unittest.TestLoader().loadTestsFromTestCase(TestPJFConfiguration)
     unittest.TextTestRunner(verbosity=2).run(suite)
-

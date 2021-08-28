@@ -61,7 +61,7 @@ class PJFTestcaseServer(object):
         except socket.error as e:
             raise PJFSocketError(e.message if hasattr(e, "message") else str(e))
         except Exception as e:
-            raise  PJFBaseException(e.message)
+            raise PJFBaseException(e.message)
 
     def _shutdown(self, *args):
         """
@@ -130,4 +130,4 @@ class PJFTestcaseServer(object):
         except socket.error as e:
             raise PJFSocketError(e.message if hasattr(e, "message") else str(e))
         except Exception as e:
-            raise  PJFBaseException(e.message)
+            raise PJFBaseException(e.message)

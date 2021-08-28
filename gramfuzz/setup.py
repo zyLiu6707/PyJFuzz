@@ -22,17 +22,17 @@ A few of the main features of gramfuzz are:
 * loading grammar files (python) by path
 * and more!
 """,
-    license          = 'MIT',
-    version          = '1.2.0',
-    author           = 'James \'d0c_s4vage\' Johnson',
-    maintainer       = 'James \'d0c_s4vage\' Johnson',
-    author_email     = 'd0c.s4vage@gmail.com',
-    url              = 'https://github.com/d0c-s4vage/gramfuzz',
-    platforms        = 'Cross Platform',
-	download_url     = "https://github.com/d0c-s4vage/gramfuzz/tarball/v1.2.0",
-    classifiers      =  [
+    license='MIT',
+    version='1.2.0',
+    author='James \'d0c_s4vage\' Johnson',
+    maintainer='James \'d0c_s4vage\' Johnson',
+    author_email='d0c.s4vage@gmail.com',
+    url='https://github.com/d0c-s4vage/gramfuzz',
+    platforms='Cross Platform',
+    download_url="https://github.com/d0c-s4vage/gramfuzz/tarball/v1.2.0",
+    classifiers=[
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 3',
     ],
-    packages= ['gramfuzz'],
+    packages=['gramfuzz'],
 )

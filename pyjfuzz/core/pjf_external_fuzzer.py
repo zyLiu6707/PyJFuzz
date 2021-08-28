@@ -56,7 +56,7 @@ class PJFExternalFuzzer(PJFExecutor):
         """
         try:
             if self.config.stdin:
-                    self.spawn(self.config.command, stdin_content=obj, stdin=True, timeout=1)
+                self.spawn(self.config.command, stdin_content=obj, stdin=True, timeout=1)
             else:
                 if "@@" not in self.config.command:
                     raise PJFMissingArgument("Missing @@ filename indicator while using non-stdin fuzzing method")

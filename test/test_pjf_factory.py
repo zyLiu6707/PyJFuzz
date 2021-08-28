@@ -28,6 +28,7 @@ import unittest
 
 __TITLE__ = "Testing PJFFactory Object"
 
+
 class TestPJFFactory(unittest.TestCase):
 
     def test_nested_object(self):
@@ -67,15 +68,16 @@ class TestPJFFactory(unittest.TestCase):
 
     def test_object_fuzz(self):
         json = PJFFactory(PJFConfiguration(Namespace(utf8=False, url_encode=False, parameters=None, strong_fuzz=False,
-                                                     json={"a": "\xf0aaaaaaa"}, command=["radamsa"], stdin=True, level=6,
+                                                     json={"a": "\xf0aaaaaaa"}, command=["radamsa"], stdin=True,
+                                                     level=6,
                                                      indent=True, nologo=True)))
         self.assertTrue(json.fuzzed)
 
     def test_object_parameters(self):
-        json = PJFFactory(PJFConfiguration(Namespace(parameters="d", json={"a": [{"b" : "c"}, "abcd"]}, nologo=True, level=6)))
+        json = PJFFactory(
+            PJFConfiguration(Namespace(parameters="d", json={"a": [{"b": "c"}, "abcd"]}, nologo=True, level=6)))
         self.assertTrue(json != json.fuzzed)
         self.assertTrue("abcd" in json.fuzzed)
-
 
 
 def test():
@@ -84,4 +86,3 @@ def test():
     print("=" * len(__TITLE__))
     suite = unittest.TestLoader().loadTestsFromTestCase(TestPJFFactory)
     unittest.TextTestRunner(verbosity=2).run(suite)
-

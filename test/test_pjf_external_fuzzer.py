@@ -29,6 +29,7 @@ import os
 
 __TITLE__ = "Testing PJFExternalFuzzer object"
 
+
 class TestPJFExternalFuzzer(unittest.TestCase):
 
     def test_string_mutation(self):
@@ -37,7 +38,7 @@ class TestPJFExternalFuzzer(unittest.TestCase):
         self.assertTrue(len(mutated) > 0)
 
     def test_file_mutation(self):
-        external_fuzzer = PJFExternalFuzzer(PJFConfiguration(Namespace(nologo=True, command=["radamsa","@@"],
+        external_fuzzer = PJFExternalFuzzer(PJFConfiguration(Namespace(nologo=True, command=["radamsa", "@@"],
                                                                        stdin=False)))
         with file("test.json", "wb") as json_file:
             json_file.write('{"a": 1}')
@@ -48,6 +49,7 @@ class TestPJFExternalFuzzer(unittest.TestCase):
             json_file.close()
             self.assertTrue(len(content) > 0)
         os.unlink("test.json")
+
 
 def test():
     print("=" * len(__TITLE__))

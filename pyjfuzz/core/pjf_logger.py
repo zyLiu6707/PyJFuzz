@@ -24,6 +24,7 @@ import logging
 import time
 import sys
 
+
 class PJFLogger(object):
 
     @staticmethod

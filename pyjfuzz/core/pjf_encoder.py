@@ -26,6 +26,7 @@ import json
 import sys
 import re
 
+
 class PJFEncoder(object):
     """
     Class that represent a JSON encoder / decoder
@@ -36,6 +37,7 @@ class PJFEncoder(object):
         """
         Decorator used to change the return value from PJFFactory.fuzzed, it makes the structure printable
         """
+
         def func_wrapper(self, indent, utf8):
             if utf8:
                 encoding = "\\x%02x"
@@ -92,7 +94,8 @@ class PJFEncoder(object):
             def encode(x):
                 for encoded in hex_regex.findall(x):
                     if sys.version_info >= (3, 0):
-                        x = x.replace(encoded, bytes(str(encoded).replace("\\\\x", "\\x"),"utf-8").decode("unicode_escape"))
+                        x = x.replace(encoded,
+                                      bytes(str(encoded).replace("\\\\x", "\\x"), "utf-8").decode("unicode_escape"))
                     else:
                         x = x.replace(encoded, str(encoded).replace("\\\\x", "\\x").decode("string_escape"))
                 return x

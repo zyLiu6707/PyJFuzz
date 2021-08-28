@@ -27,19 +27,22 @@ import time
 import unittest
 import urllib2
 
-
 from pyjfuzz.core.pjf_server import PJFServer
 
 __TITLE__ = "Testing PJFFServer Object"
 
+
 class TestPJFServer(unittest.TestCase):
 
     def test_start_object(self):
-        server = PJFServer(configuration=PJFConfiguration(Namespace(ports={"servers": {"HTTP_PORT": 8080, "HTTPS_PORT": 8443}},
-                                                   html=False, level=6, command=["radamsa"], stdin=True,
-                                                   json={"a": "test"}, indent=True, strong_fuzz=False, url_encode=False,
-                                                   parameters=[], notify=False, debug=False, content_type="text/plain",
-                                                                    utf8=False, nologo=True)))
+        server = PJFServer(
+            configuration=PJFConfiguration(Namespace(ports={"servers": {"HTTP_PORT": 8080, "HTTPS_PORT": 8443}},
+                                                     html=False, level=6, command=["radamsa"], stdin=True,
+                                                     json={"a": "test"}, indent=True, strong_fuzz=False,
+                                                     url_encode=False,
+                                                     parameters=[], notify=False, debug=False,
+                                                     content_type="text/plain",
+                                                     utf8=False, nologo=True)))
         server.run()
         time.sleep(2)
         json_http = urllib2.urlopen("http://127.0.0.1:8080").read()
@@ -60,4 +63,3 @@ def test():
     print("=" * len(__TITLE__))
     suite = unittest.TestLoader().loadTestsFromTestCase(TestPJFServer)
     unittest.TextTestRunner(verbosity=2).run(suite)
-

@@ -31,22 +31,24 @@ import os
 
 __TITLE__ = "Testing PJFProcessMonitor object"
 
+
 class TestPJFProcessMonitor(unittest.TestCase):
 
     def test_process_monitor(self):
         os.chdir(TEST_PATH)
         subprocess.Popen(["gcc", "sigsegv.c", "-o", "sigsegv"], stderr=subprocess.PIPE, stdout=subprocess.PIPE).wait()
         crash = PJFProcessMonitor(PJFConfiguration(Namespace(process_to_monitor=["%s/sigsegv" % TEST_PATH], debug=False,
-                                            ports={"servers":
-                                                       {
-                                                           "HTTP_PORT": 8080,
-                                                           "HTTPS_PORT": 8443,
-                                                           "TCASE_PORT": 8888
-                                                       }
-                                            },
+                                                             ports={"servers":
+                                                                 {
+                                                                     "HTTP_PORT": 8080,
+                                                                     "HTTPS_PORT": 8443,
+                                                                     "TCASE_PORT": 8888
+                                                                 }
+                                                             },
                                                              nologo=True))
                                   ).run_and_monitor()
         self.assertTrue(crash)
+
 
 def test():
     print("=" * len(__TITLE__))
@@ -54,4 +56,3 @@ def test():
     print("=" * len(__TITLE__))
     suite = unittest.TestLoader().loadTestsFromTestCase(TestPJFProcessMonitor)
     unittest.TextTestRunner(verbosity=2).run(suite)
-

@@ -27,6 +27,7 @@ from git import Repo
 import subprocess
 import tempfile
 import sys
+
 if sys.version_info >= (3, 0):
     import urllib.parse
     import http.client
@@ -35,6 +36,7 @@ else:
     import httplib
 import shutil
 import os
+
 
 class PJFUpdater:
 
@@ -79,7 +81,7 @@ class PJFUpdater:
 
     def install(self, version):
         subprocess.Popen(["python", "{0}/setup.py".format(self.tmp_dir), "install"]).wait()
-        proc = subprocess.Popen(["python","-c","from pyjfuzz.lib import PYJFUZZ_VERSION; print(PYJFUZZ_VERSION),"],
+        proc = subprocess.Popen(["python", "-c", "from pyjfuzz.lib import PYJFUZZ_VERSION; print(PYJFUZZ_VERSION),"],
                                 stdout=subprocess.PIPE)
         proc.wait()
         v = proc.stdout.read().replace("\n", "")
@@ -105,4 +107,3 @@ class PJFUpdater:
             print("[\033[92mINFO\033[0m] You've got already the last version :)")
         shutil.rmtree(self.tmp_dir)
         return False
-

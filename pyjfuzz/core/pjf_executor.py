@@ -32,6 +32,7 @@ import signal
 import time
 import sys
 
+
 class PJFExecutor(object):
     """
     Main class used to spawn and kill processes

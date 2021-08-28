@@ -28,6 +28,7 @@ import unittest
 
 __TITLE__ = "Testing PJFMutation object"
 
+
 class TestPJFMutation(unittest.TestCase):
 
     def test_string_mutation(self):
@@ -55,10 +56,10 @@ class TestPJFMutation(unittest.TestCase):
             PJFMutation(PJFConfiguration(Namespace(nologo=True, command="radamsa", stdin=True, level=6))).fuzz(None)
             raise Exception
 
+
 def test():
     print("=" * len(__TITLE__))
     print(__TITLE__)
     print("=" * len(__TITLE__))
     suite = unittest.TestLoader().loadTestsFromTestCase(TestPJFMutation)
     unittest.TextTestRunner(verbosity=2).run(suite)
-

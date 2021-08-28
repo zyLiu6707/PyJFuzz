@@ -29,10 +29,12 @@ from .pjf_logger import PJFLogger
 import time
 import json
 import sys
+
 if sys.version_info >= (3, 0):
     import urllib.request, urllib.parse, urllib.error
 else:
     import urllib
+
 
 class PJFFactory(object):
 
@@ -42,7 +44,7 @@ class PJFFactory(object):
         """
         self.logger = self.init_logger()
         if ["json", "json_file", "strong_fuzz", "parameters", "exclude_parameters", "url_encode", "indent",
-                "utf8"] not in configuration:
+            "utf8"] not in configuration:
             raise PJFMissingArgument("Some arguments are missing from PJFFactory object")
 
         self.config = configuration
