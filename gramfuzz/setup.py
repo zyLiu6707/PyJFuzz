@@ -6,9 +6,9 @@ from setuptools import setup
 
 setup(
     # metadata
-    name             = 'gramfuzz',
-    description      = 'gramfuzz is a python-based grammar fuzzer',
-    long_description = """
+    name='gramfuzz',
+    description='gramfuzz is a python-based grammar fuzzer',
+    long_description="""
 gramfuzz is a python-based grammar fuzzer that is ideally
 suited for complex text and binary grammars.
 
